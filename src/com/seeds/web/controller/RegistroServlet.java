@@ -37,11 +37,7 @@ public class RegistroServlet extends HttpServlet {
 		out.append("</body>");
 
 
-		out.flush();
-		
-//		response.getWriter().append("Hola Mundo "+nombre);
-//		response.getWriter().flush();
-		
+		out.flush();		
 	}
 
 
