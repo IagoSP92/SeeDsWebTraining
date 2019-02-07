@@ -25,6 +25,7 @@ import com.isp.seeds.service.ContenidoServiceImpl;
 import com.isp.seeds.service.criteria.ContenidoCriteria;
 import com.isp.seeds.service.spi.ContenidoService;
 import com.mysql.cj.util.StringUtils;
+import com.seeds.web.utils.DateUtils;
 
 
 @WebServlet("/Contenido4")
@@ -33,10 +34,12 @@ public class ContenidoServlet4 extends HttpServlet {
 	private static Logger logger = LogManager.getLogger(ContenidoDAOImpl.class);
 	
 	private ContenidoService contenidoSvc = null;
+	private DateUtils dateUtils = null;
 
     public ContenidoServlet4() {
   
     	contenidoSvc = new ContenidoServiceImpl();
+    	dateUtils = new DateUtils();
     	
     }
 
@@ -53,8 +56,8 @@ public class ContenidoServlet4 extends HttpServlet {
 		String fechaMax = request.getParameter("fechaMax");
 		String id = request.getParameter("id");
 		
-		Date fMin = null;
-		Date fMax = null;
+		Date fMin = dateUtils.dateFormat(fechaMin);
+		Date fMax = dateUtils.dateFormat(fechaMax);
 		Long idCont = null;
 		
 		try {
@@ -65,18 +68,7 @@ public class ContenidoServlet4 extends HttpServlet {
 				idCont = Long.parseLong(id);
 			} else {
 				//El campo es obligatorio
-			}
-			
-			DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-			
-			System.out.println(fechaMin);
-			
-			if(fechaMin != null) { fMin = df.parse(fechaMin);}
-			
-			System.out.println(fMin);
-			
-			if(fechaMax != null) { fMax = df.parse(fechaMax);}
-			
+			}			
 			
 			if(!StringUtils.isEmptyOrWhitespaceOnly(nombre)) {
 				nombre= nombre.trim();
@@ -84,8 +76,6 @@ public class ContenidoServlet4 extends HttpServlet {
 				//El campo es obligatorio
 			}		
 			
-		} catch (ParseException pe) {
-			pe.printStackTrace();
 		} catch (Exception ee) {
 			ee.printStackTrace();
 		}
