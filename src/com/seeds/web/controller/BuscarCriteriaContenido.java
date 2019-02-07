@@ -2,11 +2,7 @@ package com.seeds.web.controller;
 
 import java.io.IOException;
 import java.io.Writer;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -24,21 +20,23 @@ import com.isp.seeds.model.Contenido;
 import com.isp.seeds.service.ContenidoServiceImpl;
 import com.isp.seeds.service.criteria.ContenidoCriteria;
 import com.isp.seeds.service.spi.ContenidoService;
-import com.mysql.cj.util.StringUtils;
 import com.seeds.web.utils.DateUtils;
+import com.seeds.web.utils.ValidationUtils;
 
 
-@WebServlet("/Contenido4")
-public class ContenidoServlet4 extends HttpServlet {
+@WebServlet("/ContenidoCriteria")
+public class BuscarCriteriaContenido extends HttpServlet {
 	
 	private static Logger logger = LogManager.getLogger(ContenidoDAOImpl.class);
 	
 	private ContenidoService contenidoSvc = null;
+	ValidationUtils validationUtils = null;
 	private DateUtils dateUtils = null;
 
-    public ContenidoServlet4() {
+    public BuscarCriteriaContenido() {
   
     	contenidoSvc = new ContenidoServiceImpl();
+    	validationUtils = new ValidationUtils();
     	dateUtils = new DateUtils();
     	
     }
@@ -55,42 +53,18 @@ public class ContenidoServlet4 extends HttpServlet {
 		String fechaMin = request.getParameter("fechaMin");
 		String fechaMax = request.getParameter("fechaMax");
 		String id = request.getParameter("id");
-		
-		Date fMin = dateUtils.dateFormat(fechaMin);
-		Date fMax = dateUtils.dateFormat(fechaMax);
-		Long idCont = null;
-		
-		try {
-
-			//if (id!=null) { idCont = Long.parseLong(id); }
-			
-			if(!StringUtils.isEmptyOrWhitespaceOnly(id)) {
-				idCont = Long.parseLong(id);
-			} else {
-				//El campo es obligatorio
-			}			
-			
-			if(!StringUtils.isEmptyOrWhitespaceOnly(nombre)) {
-				nombre= nombre.trim();
-			} else {
-				//El campo es obligatorio
-			}		
-			
-		} catch (Exception ee) {
-			ee.printStackTrace();
-		}
 
 		try {
-			// Aqui haberia que mirar se houbo algun error, se o houbo non se chama a capa de negocio
 			
 			ContenidoCriteria criteria = new ContenidoCriteria();
-			if(nombre != null ) {  criteria.setNombre(nombre); }
-			if(fMin != null ) { criteria.setFechaAlta(fMin);  }  
-			if(fMax != null ) { criteria.setFechaAltaHasta(fMax);  }  
-			if(idCont != null ) { criteria.setIdContenido(idCont);  }
+			criteria.setNombre(validationUtils.validateString(nombre));
+			criteria.setFechaAlta(dateUtils.dateFormat(fechaMin));  
+			criteria.setFechaAltaHasta(dateUtils.dateFormat(fechaMax));
+			criteria.setIdContenido(validationUtils.validateLong(id));
 			
 			List<Contenido> listado = new ArrayList<Contenido>();
 			listado = contenidoSvc.buscarCriteria(criteria);
+			
 			devolvemos="CONTENIDOS COINCIDENTES: <br>";
 			for(Contenido c: listado) {
 				devolvemos+= c.toString();
@@ -103,6 +77,7 @@ public class ContenidoServlet4 extends HttpServlet {
 			out.append("Hemos tenido un problema"+e.getMessage());
 			e.printStackTrace();	
 			}
+		
 		out.flush();
 	}
 
