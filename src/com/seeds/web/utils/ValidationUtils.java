@@ -4,7 +4,7 @@ import com.mysql.cj.util.StringUtils;
 
 public class ValidationUtils {
 	
-public Long static validateLong (String longAntes) {
+public static Long validateLong (String longAntes) {
 		
 		Long longDespues = null;
 		
