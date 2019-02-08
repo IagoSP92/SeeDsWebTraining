@@ -67,6 +67,10 @@ public class RegistroServlet extends HttpServlet {
 		} catch (DataException e) {
 			// ERROR LOG
 		}
+		
+			request.setAttribute("usuairo", u);
+			
+			request.getRequestDispatcher("/IndexJSP").forward(request, response);
 
 		out.flush();		
 	}

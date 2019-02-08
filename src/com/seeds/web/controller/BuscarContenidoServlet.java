@@ -2,6 +2,7 @@ package com.seeds.web.controller;
 
 import java.io.IOException;
 import java.io.Writer;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,8 +25,8 @@ import com.seeds.web.utils.DateUtils;
 import com.seeds.web.utils.ValidationUtils;
 
 
-@WebServlet("/ContenidoCriteria")
-public class BuscarCriteriaContenido extends HttpServlet {
+@WebServlet("/Contenido")
+public class BuscarContenidoServlet extends HttpServlet {
 	
 	private static Logger logger = LogManager.getLogger(ContenidoDAOImpl.class);
 	
@@ -33,7 +34,7 @@ public class BuscarCriteriaContenido extends HttpServlet {
 	ValidationUtils validationUtils = null;
 	private DateUtils dateUtils = null;
 
-    public BuscarCriteriaContenido() {
+    public BuscarContenidoServlet() {
   
     	contenidoSvc = new ContenidoServiceImpl();
     	validationUtils = new ValidationUtils();
@@ -53,30 +54,43 @@ public class BuscarCriteriaContenido extends HttpServlet {
 		String fechaMin = request.getParameter("fechaMin");
 		String fechaMax = request.getParameter("fechaMax");
 		String id = request.getParameter("id");
+		
+		List<Contenido> listado = new ArrayList<Contenido>();
 
-		try {
+		
 			
 			ContenidoCriteria criteria = new ContenidoCriteria();
+			
+
 			criteria.setNombre(validationUtils.validateString(nombre));
-			criteria.setFechaAlta(dateUtils.dateFormat(fechaMin));  
+	
+			
+			criteria.setFechaAlta(dateUtils.dateFormat(fechaMin));
+
+
 			criteria.setFechaAltaHasta(dateUtils.dateFormat(fechaMax));
+	
+			
 			criteria.setIdContenido(validationUtils.validateLong(id));
+
 			
-			List<Contenido> listado = new ArrayList<Contenido>();
-			listado = contenidoSvc.buscarCriteria(criteria);
 			
-			devolvemos="CONTENIDOS COINCIDENTES: <br>";
-			for(Contenido c: listado) {
-				devolvemos+= c.toString();
-				devolvemos+="\n<br><br>";
+			try {
+				listado = contenidoSvc.buscarCriteria(criteria);
+			} catch (DataException e) {
+				e.printStackTrace();
 			}
 			
-			out.append(devolvemos);
+//			devolvemos="CONTENIDOS COINCIDENTES: <br>";
+//			for(Contenido c: listado) {
+//				devolvemos+= c.toString();
+//				devolvemos+="\n<br><br>";
+//			}
+//			
+//			out.append(devolvemos);
 			
-		} catch ( DataException e) {
-			out.append("Hemos tenido un problema"+e.getMessage());
-			e.printStackTrace();	
-			}
+		
+		request.setAttribute("resultados", listado);
 		
 		out.flush();
 	}
