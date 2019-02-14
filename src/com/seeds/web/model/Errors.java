@@ -1,4 +1,4 @@
-package com.ejemplo.web.model;
+package com.seeds.web.model;
 
 import java.util.ArrayList;
 import java.util.HashMap;

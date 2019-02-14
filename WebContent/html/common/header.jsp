@@ -13,9 +13,8 @@
 %>
 <body>
 	<a href="/index.jsp">
-		<img src="/EjemplosMVC/imgs/logo.jpg" width="100" height="60" alt="Ribeira Sacra"/>
+		<img src="/SeeDsWebTraining/imgs/logo.jpg" width="100" height="60" alt="Ribeira Sacra"/>
 	</a>
 	
 	<%@include file="/html/common/user-menu.jsp"%>
 	
-	<%@include file="/html/common/buscarCriteria.jsp"%> 

@@ -4,7 +4,7 @@
 		Usuario u = (Usuario) request.getSession().getAttribute(SessionAttributeNames.USUARIO);
 		if (u == null) {
 		
-			%><a href="/EjemplosMVC<%=ViewPath.ENTRAR%>">Entrar</a><%	
+			%><a href="/SeeDsWebTraining<%=ViewPath.ENTRAR%>">Entrar</a><%	
 		
 		} else {
 			%>	

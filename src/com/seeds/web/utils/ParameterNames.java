@@ -4,6 +4,8 @@ public class ParameterNames {
 	
 	public static final String ACTION = "action";
 
+	public static final String FECHA_MIN = "fecha_min";
+	public static final String FECHA_MAX = "fecha_max";
 	
 	public static final String VALORACION_MEDIA = "valoracion_media";
 
