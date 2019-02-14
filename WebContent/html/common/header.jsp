@@ -18,4 +18,4 @@
 	
 	<%@include file="/html/common/user-menu.jsp"%>
 	
-	<%@include file="/html/common/buscar-criteria.jsp"%> 
+	<%@include file="/html/common/buscarCriteria.jsp"%> 
