@@ -2,6 +2,9 @@ package com.seeds.web.utils;
 
 public class ParameterNames {
 	
+	public static final String ACTION = "action";
+
+	
 	public static final String VALORACION_MEDIA = "valoracion_media";
 
 	public static final String ID_CONTENIDO = "id_contenido";
