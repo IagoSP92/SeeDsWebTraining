@@ -2,6 +2,8 @@ package com.seeds.web.utils;
 
 public class ParameterNames {
 	
+	public static final String IDIOMA = "ES";
+	
 	public static final String ACTION = "action";
 
 	public static final String FECHA_MIN = "fecha_min";

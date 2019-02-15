@@ -6,6 +6,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<!--  .js .css -->
+	<link rel="stylesheet" type="text/css" media="screen" href="/SeeDsWebTraining/css/main.css">
 </head>
 <%
 	Errors errors = (Errors) request.getAttribute(AttributeNames.ERRORS);
