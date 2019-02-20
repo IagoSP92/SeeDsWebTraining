@@ -1,4 +1,4 @@
-package com.seeds.web.utils;
+package com.seeds.web.controller;
 
 public interface AttributeNames {
 
