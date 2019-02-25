@@ -23,16 +23,12 @@ import com.isp.seeds.service.UsuarioServiceImpl;
 import com.isp.seeds.service.criteria.ContenidoCriteria;
 import com.isp.seeds.service.spi.ContenidoService;
 import com.isp.seeds.service.spi.UsuarioService;
+import com.seeds.web.model.ErrorCodes;
 import com.seeds.web.model.Errors;
-import com.seeds.web.utils.Actions;
-import com.seeds.web.utils.AttributeNames;
 import com.seeds.web.utils.DateUtils;
-import com.seeds.web.utils.ErrorCodes;
-import com.seeds.web.utils.ParameterNames;
 import com.seeds.web.utils.SessionAttributeNames;
 import com.seeds.web.utils.SessionManager;
 import com.seeds.web.utils.ValidationUtils;
-import com.seeds.web.utils.ViewPath;
 
 
 @WebServlet("/usuario")

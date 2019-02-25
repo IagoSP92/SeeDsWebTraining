@@ -1,4 +1,4 @@
-<%@ page import="com.isp.seeds.service.*, com.seeds.web.utils.*, com.seeds.web.model.*, com.isp.seeds.model.*" %>
+<%@ page import="com.isp.seeds.service.*, com.seeds.web.utils.*, com.seeds.web.model.*, com.isp.seeds.model.*, com.seeds.web.controller.*" %>
 <div id="user-menu">
 	<%
 		Usuario u = (Usuario) request.getSession().getAttribute(SessionAttributeNames.USUARIO);
