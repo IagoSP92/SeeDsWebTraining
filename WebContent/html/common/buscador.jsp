@@ -12,8 +12,10 @@
 
 			<input name="<%=ParameterNames.FECHA_MIN%>" type="text" 
 					value="<%=ParameterUtils.getParameter(request, ParameterNames.FECHA_MIN) %>"/>
+					
 			<input name="<%=ParameterNames.FECHA_MAX%>" type="text" 
 					value="<%=ParameterUtils.getParameter(request, ParameterNames.FECHA_MAX) %>"/>
+					
 			<input name="<%=ParameterNames.ID_CONTENIDO%>" type="text"
 					value="<%=ParameterUtils.getParameter(request, ParameterNames.ID_CONTENIDO) %>"/>
 					

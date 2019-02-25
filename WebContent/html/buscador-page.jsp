@@ -6,5 +6,4 @@
 <!--  Falta algo aquí? -->
 <%@include file="/html/common/buscador.jsp"%>
 
-
 <%@include file="/html/common/footer.jsp"%>

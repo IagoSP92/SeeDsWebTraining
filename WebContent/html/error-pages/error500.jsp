@@ -7,6 +7,7 @@
 <title>ERROR 500</title>
 </head>
 <body>
+
 	<h1>ERROR 500:</h1>
 	<h2>Ha habido un problema.</h2>
 	<h3>Por favor, intentelo de nuevo más tarde.</h3>

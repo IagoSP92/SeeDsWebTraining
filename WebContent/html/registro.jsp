@@ -1,4 +1,4 @@
-<%@ page import="com.seeds.web.utils.*" %>
+<%@ page import="com.seeds.web.utils.*, com.seeds.web.controller.*" %>
 <%@ page import="java.util.*" %>
 
 
