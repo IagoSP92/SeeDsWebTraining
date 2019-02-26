@@ -13,4 +13,6 @@
   	<error-code> 500</error-code>
   	<location>/SeeDsWebTraining/html/error-pages/error500.jsp</location>
   </error-page>
+  
+  <!-- response.getStatus  para saber o error que sucedeu -->
 </web-app>
