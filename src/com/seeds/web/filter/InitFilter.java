@@ -1,6 +1,7 @@
 package com.seeds.web.filter;
 
 import java.io.IOException;
+import java.util.Enumeration;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -32,6 +33,14 @@ public class InitFilter implements Filter {
 		
 		HttpServletRequest httpRequest = (HttpServletRequest) request;
 		HttpServletResponse httpResponse = (HttpServletResponse) response;
+		
+		Enumeration<String> headerNames = httpRequest.getHeaderNames();
+
+		
+		while(headerNames.nextElement()!=null) {
+			logger.debug("\nHeader: {} ",headerNames.nextElement());
+		}
+		
 		
 		String paxinaRafa = "/html/rafa.jsp";
 		String ipRafa = "10.53.124.205";
