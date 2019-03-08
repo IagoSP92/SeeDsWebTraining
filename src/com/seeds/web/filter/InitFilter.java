@@ -2,6 +2,7 @@ package com.seeds.web.filter;
 
 import java.io.IOException;
 import java.util.Enumeration;
+import java.util.Locale;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -33,14 +34,17 @@ public class InitFilter implements Filter {
 		
 		HttpServletRequest httpRequest = (HttpServletRequest) request;
 		HttpServletResponse httpResponse = (HttpServletResponse) response;
-		
+				
 		Enumeration<String> headerNames = httpRequest.getHeaderNames();
-
 		
-		while(headerNames.nextElement()!=null) {
-			logger.debug("\nHeader: {} ",headerNames.nextElement());
+		while(headerNames.hasMoreElements()) {
+			String hName= headerNames.nextElement();
+			logger.debug("Header: {} = {}",hName, httpRequest.getHeader(hName));
 		}
 		
+		Locale locale = new Locale.Builder().setLanguage("fr").setRegion("CA").build();
+		locale= Locale.GERMANY;
+		logger.debug("Locale: {} =", locale.toString());
 		
 		String paxinaRafa = "/html/rafa.jsp";
 		String ipRafa = "10.53.124.205";
