@@ -4,6 +4,7 @@
 
 <!--  Que diferencia deduces (o porqué) entre buscador.jsp y buscador-page.jsp ? -->
 <!--  Falta algo aquí? -->
-<%@include file="/html/common/buscador.jsp"%>
-
+<div class="mainWindow">
+	<%@include file="/html/common/buscador.jsp"%>
+</div>
 <%@include file="/html/common/footer.jsp"%>

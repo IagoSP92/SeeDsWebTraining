@@ -1,11 +1,94 @@
 @charset "ISO-8859-1";
 
+html, body{
+	width: 98%;
+	height: 98%;
+}
 
+#mainLogo{
+	width: 140px;
+	height: 60px;
+	alt: "SeeDs Logo";
+}
+#mainLogoDiv{
+	top:0%;
+	position: fixed;
+	width: 140px;
+	height: 60px;
+	display: inline-block;
+}
 #registro-form{
 	width: 1000px;
 	height:1000px;
 	left:50%;
 	/*margin-left: -300px;*/
 	
-	background-color: rgb(71, 71, 216);
+	background-color: rgb(1, 122, 221);
 }
+
+#user-menu { /* MENU SUPERIOR */
+	top:0%;
+	position: fixed;
+	left:150px;
+	display: inline-block;
+	width: 100%;
+	height: 35px;
+	background-color: rgb(1, 122, 221);
+	border: 1px solid black;
+}
+
+
+#nav-menu { /* MENU SUPERIOR */
+	position: fixed;
+	top: 80px;
+	left: 0%;
+	/*display: inline-block;*/
+	width: 130px;
+	height: 100%;
+	background-color: rgb(1, 136, 247);
+	border: 1px solid black;
+	}
+
+	.navButton{
+		margin:5px;
+		padding:5px;
+		background-color: rgb(149, 199, 240);
+
+	}
+
+	.userButton{
+		margin:5px;
+		background-color: rgb(149, 199, 240);
+		height: 25px;
+		margin-left: 3%;
+		border: none;
+		box-shadow: 1px 1px white;
+	}
+
+	.mainWindow{
+		margin-top: 70px;
+		margin-left: 160px;
+	}
+
+	#buscador-form {
+		background-color: rgb(1, 122, 221);
+		border: 1px solid  rgb(62, 141, 206);
+		padding:10px;
+		margin: 10px;
+		display: inline-block;
+
+	}
+	#buscarButton{
+
+	}
+
+	.thumbDiv{
+		background-color: rgb(149, 199, 240);
+		border: 1px solid black;
+		padding:10px;
+		margin: 20px;
+	}
+
+	#footer{
+		bottom: 0%;
+	}

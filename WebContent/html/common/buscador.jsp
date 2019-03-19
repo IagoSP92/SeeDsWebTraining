@@ -19,9 +19,12 @@
 			<input name="<%=ParameterNames.ID_CONTENIDO%>" type="text"
 					value="<%=ParameterUtils.getParameter(request, ParameterNames.ID_CONTENIDO) %>"/>
 					
-			<input type="submit" name="buscar" value="Buscar"/>
+			<input id="buscarButton"type="submit" name="buscar" value="Buscar"/>
 		</form>
 	</p>
+</div>
+<div id="buscador-results">
+<h1>Resultados de l abiusqueda</h1>
 		
 	<%		
 		List<String> resultados = (List<String>) request.getAttribute(AttributeNames.RESULTADOS);	
@@ -31,7 +34,9 @@
 			<ul><%
 			for (String resultado: resultados) {
 				%>
+				<div class="thumbDiv">
 					<li><%=resultado%></li>
+				</div>
 				<%
 			}
 			%></ul><%

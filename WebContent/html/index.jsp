@@ -2,7 +2,10 @@
 
 <%@include file="/html/common/header.jsp"%>
 
-<h1>Pagina principal</h1>
+<div class="mainWindow">
+	<h1>General</h1>
+	<%@include file="/html/common/buscador.jsp"%>
+</div>
 
 
 <%@include file="/html/common/footer.jsp"%>
